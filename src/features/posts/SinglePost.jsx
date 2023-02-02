@@ -22,7 +22,7 @@ export default function SinglePost() {
       <h2 className="text-3xl text-center font-bold my-2">Post</h2>
       <article className="border rounded p-3">
         <h3 className="text-xl font-semibold">{post?.title}</h3>
-        <PostAuthor author={post?.author} />
+        <PostAuthor user={post?.user} />
         <TimeAgo date={post?.date} />
         <p className="text-gray-700">{post?.content}</p>
         <ReactionButtons reactions={post.reactions} postId={post.id} />

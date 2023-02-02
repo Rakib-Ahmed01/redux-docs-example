@@ -9,6 +9,7 @@ export const Navbar = () => {
           <div className="navLinks flex justify-center gap-2 mt-2">
             <Link to="/">Home</Link>
             <Link to="/posts">Posts</Link>
+            <Link to="/users">Users</Link>
           </div>
         </div>
       </section>

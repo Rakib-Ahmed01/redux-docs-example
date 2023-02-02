@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Spinner } from '../../components/Spinner';
 import PostAuthor from './PostAuthor';
-import { fetchPosts, selectAllPosts } from './postsSlice';
+import { fetchPosts, selectPostById, selectPostIds } from './postsSlice';
 import ReactionButtons from './ReactionButtons';
 import TimeAgo from './TimeAgo';
 
 export default function PostsList() {
-  const posts = useSelector(selectAllPosts);
+  // const posts = useSelector(selectAllPosts);
+  const postIds = useSelector(selectPostIds);
   const postsStatus = useSelector((state) => state.posts.status);
   const error = useSelector((state) => state.posts.error);
 
@@ -20,12 +21,16 @@ export default function PostsList() {
     }
   }, []);
 
-  const renderedPosts = posts
-    .slice()
-    .sort((a, b) => b.date.localeCompare(a.date))
-    ?.map((post) => {
-      return <Post key={post.id} post={post} />;
-    });
+  // const renderedPosts = posts
+  //   .slice()
+  //   .sort((a, b) => b.date.localeCompare(a.date))
+  //   ?.map((post) => {
+  //     return <Post key={post.id} post={post} />;
+  //   });
+
+  const renderedPosts = postIds?.map((postId) => {
+    return <Post key={postId} postId={postId} />;
+  });
 
   let content;
 
@@ -45,11 +50,12 @@ export default function PostsList() {
   );
 }
 
-function Post({ post }) {
+function Post({ postId }) {
+  const post = useSelector((state) => selectPostById(state, postId));
   return (
     <article className="border rounded p-3 w-1/2 mx-auto my-4">
       <h3 className="text-xl font-semibold">{post?.title}</h3>
-      <PostAuthor author={post?.author} />
+      <PostAuthor user={post?.user} />
       <TimeAgo date={post?.date} />
       <p className="text-gray-700">
         {post?.content.length > 100

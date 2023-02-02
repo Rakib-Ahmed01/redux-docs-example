@@ -1,10 +1,8 @@
-export default function PostAuthor({ author }) {
+export default function PostAuthor({ user: { name } }) {
   return (
     <>
       by{' '}
-      <span className="text-violet-500">
-        {author ? author : 'Unknown Author'}
-      </span>
+      <span className="text-violet-500">{name ? name : 'Unknown Author'}</span>
     </>
   );
 }

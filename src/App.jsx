@@ -4,6 +4,8 @@ import AddPost from './features/posts/AddPost';
 import EditPost from './features/posts/EditPost';
 import PostsList from './features/posts/PostsList';
 import SinglePost from './features/posts/SinglePost';
+import UsersList from './features/users/UsersList';
+import UsersPage from './features/users/UsersPage';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,14 @@ const router = createBrowserRouter([
       {
         path: '/edit-post/:postId',
         element: <EditPost />,
+      },
+      {
+        path: '/users',
+        element: <UsersList />,
+      },
+      {
+        path: '/users/:userId',
+        element: <UsersPage />,
       },
     ],
   },

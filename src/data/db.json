@@ -12,13 +12,16 @@
         "hooray": 0,
         "thumbsUp": 0,
         "haha": 0
+      },
+      "user": {
+        "id": "1",
+        "name": "Kevin Grant"
       }
     },
     {
       "id": "2",
       "title": "Second Post",
       "content": "More text",
-      "author": "Madison Price",
       "date": "2023-02-01T17:39:16.775Z",
       "reactions": {
         "eyes": 0,
@@ -27,13 +30,21 @@
         "hooray": 0,
         "thumbsUp": 0,
         "haha": 0
+      },
+      "user": {
+        "id": "0",
+        "name": "Tianna Jenkins"
       }
     },
     {
-      "id": "3",
-      "title": "Third Post!",
-      "content": "Hello!!!",
-      "date": "2023-02-01T17:44:16.775Z",
+      "title": "hgghfgh",
+      "content": "fghfg",
+      "user": {
+        "id": "1",
+        "name": "Kevin Grant"
+      },
+      "id": "5Fc0POendOxeLqbe2Uzux",
+      "date": "2023-02-02T10:50:53.842Z",
       "reactions": {
         "eyes": 0,
         "rocket": 0,
@@ -44,11 +55,14 @@
       }
     },
     {
-      "title": "gfhfhgf",
-      "content": "fghfghfg",
-      "author": "Kevin Grant",
-      "id": "Pj_5Jhjl1w2mUzgDExRfg",
-      "date": "2023-02-01T19:37:44.839Z",
+      "title": "xcvxcv",
+      "content": "cvxvcxvcxv",
+      "user": {
+        "id": "2",
+        "name": "Madison Price"
+      },
+      "id": "1HdN1awwgR6XQg1KKcm7v",
+      "date": "2023-02-02T11:23:57.026Z",
       "reactions": {
         "eyes": 0,
         "rocket": 0,
@@ -59,11 +73,14 @@
       }
     },
     {
-      "title": "fdgds",
-      "content": "dfsgdfgd",
-      "author": "Kevin Grant",
-      "id": "pooAdcPJVZjsH1arQvG-h",
-      "date": "2023-02-01T19:38:48.959Z",
+      "title": "Coding",
+      "content": "Pellentesque in ipsum id orci porta dapibus. Nulla porttitor accumsan tincidunt. Sed porttitor lectus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.",
+      "user": {
+        "id": "3",
+        "name": "Rakib Ahmed"
+      },
+      "id": "QA7wxjPz45cvYdqM5s_CQ",
+      "date": "2023-02-02T12:36:54.588Z",
       "reactions": {
         "eyes": 0,
         "rocket": 0,
@@ -74,11 +91,14 @@
       }
     },
     {
-      "title": "xvcxcvcvxc",
-      "content": "xcvdgdfgfd",
-      "author": "Kevin Grant",
-      "id": "7VvgIpU_2x4Tn6cZMvYPl",
-      "date": "2023-02-01T19:51:58.273Z",
+      "title": "Kobit Lekhtechi",
+      "content": "Mujib Mane Mukti kobita lekhtechi....",
+      "user": {
+        "id": "4",
+        "name": "Rafin Ahmed"
+      },
+      "id": "MnDW964o8Nc2ZvnP1v_ro",
+      "date": "2023-02-02T13:56:48.011Z",
       "reactions": {
         "eyes": 0,
         "rocket": 0,
@@ -89,11 +109,14 @@
       }
     },
     {
-      "title": "fdhgd",
-      "content": "hgdgfg",
-      "author": "Kevin Grant",
-      "id": "sgDXLsOs8dEkI_8fs6LeL",
-      "date": "2023-02-01T19:54:43.113Z",
+      "title": "ddddddf",
+      "content": "dfgdfgdf",
+      "user": {
+        "id": "1",
+        "name": "Kevin Grant"
+      },
+      "id": "al-JPVpLCDlRXrjbJiQEy",
+      "date": "2023-02-02T14:07:56.183Z",
       "reactions": {
         "eyes": 0,
         "rocket": 0,
@@ -104,11 +127,14 @@
       }
     },
     {
-      "title": "dsafxcxc",
-      "content": "xcxcxc",
-      "author": "Madison Price",
-      "id": "NHJWjAM-qw2a7VxErwdMY",
-      "date": "2023-02-01T19:55:39.241Z",
+      "title": "cvcvc",
+      "content": "vcvcvcvc",
+      "user": {
+        "id": "3",
+        "name": "Rakib Ahmed"
+      },
+      "id": "JLNgJuVQmh1ouc2LiJg_2",
+      "date": "2023-02-02T14:13:59.180Z",
       "reactions": {
         "eyes": 0,
         "rocket": 0,
@@ -119,11 +145,50 @@
       }
     },
     {
-      "title": "ghtghgf",
-      "content": "fghfghfgh",
-      "author": "Kevin Grant",
-      "id": "cPCIhhwRx4-thvkXlGCZp",
-      "date": "2023-02-01T19:56:26.147Z",
+      "title": "cvvvcvc",
+      "content": "vcvcvcvcvxvxvxvxv",
+      "user": {
+        "id": "4",
+        "name": "Rafin Ahmed"
+      },
+      "id": "XWkLEt43zAw2rP0g68UC0",
+      "date": "2023-02-02T14:14:23.852Z",
+      "reactions": {
+        "eyes": 0,
+        "rocket": 0,
+        "heart": 0,
+        "hooray": 0,
+        "thumbsUp": 0,
+        "haha": 0
+      }
+    },
+    {
+      "title": "Second Post",
+      "content": "More text",
+      "user": {
+        "id": "0",
+        "name": "Tianna Jenkins"
+      },
+      "id": "i3vfYPwdSFWzQj9K-TglS",
+      "date": "2023-02-02T14:33:10.093Z",
+      "reactions": {
+        "eyes": 0,
+        "rocket": 0,
+        "heart": 0,
+        "hooray": 0,
+        "thumbsUp": 0,
+        "haha": 0
+      }
+    },
+    {
+      "title": "fghf",
+      "content": "hgfhgf",
+      "user": {
+        "id": "1",
+        "name": "Kevin Grant"
+      },
+      "id": "B-ItBajO1MRlGSSuUBQ_e",
+      "date": "2023-02-02T14:38:39.276Z",
       "reactions": {
         "eyes": 0,
         "rocket": 0,
@@ -146,6 +211,14 @@
     {
       "id": "2",
       "name": "Madison Price"
+    },
+    {
+      "id": "3",
+      "name": "Rakib Ahmed"
+    },
+    {
+      "id": "4",
+      "name": "Rafin Ahmed"
     }
   ]
 }

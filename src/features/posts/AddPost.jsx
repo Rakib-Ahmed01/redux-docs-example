@@ -7,17 +7,18 @@ export default function AddPost() {
   const [data, setData] = useState({
     title: '',
     content: '',
-    author: '',
+    user: null,
   });
   const [addPostStatus, setAddPostStatus] = useState('idle');
 
   const users = useSelector(selectAllUsers);
 
   const dispatch = useDispatch();
-  const { title, content, author } = data;
-  // const canSave = title && content && author;
+  const { title, content, user } = data;
+  const userData = JSON.parse(user);
+  // const canSave = title && content && user;
   const canSave =
-    [title, content, author].every(Boolean) && addPostStatus === 'idle';
+    [title, content, user].every(Boolean) && addPostStatus === 'idle';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,9 +33,8 @@ export default function AddPost() {
     if (canSave) {
       try {
         setAddPostStatus('loading');
-        const x = await dispatch(addPost({ title, content, author })).unwrap();
-        console.log(x);
-        setData({ title: '', content: '', author: '' });
+        await dispatch(addPost({ title, content, user: userData })).unwrap();
+        setData({ title: '', content: '', user: null });
       } catch (err) {
         console.error('Failed to add the post: ', err);
       } finally {
@@ -65,19 +65,19 @@ export default function AddPost() {
           />
         </div>
         <div className="flex flex-col">
-          <label htmlFor="author" className="text-[17px]">
+          <label htmlFor="user" className="text-[17px]">
             Author:
           </label>
           <select
-            name="author"
-            id="author"
+            name="user"
+            id="user"
             className="border focus:p-2 p-2 rounded focus:outline-none resize-none focus:border-violet-200"
             onChange={handleChange}
           >
             <option value="">Select Author</option>
             {users.map((user) => {
               return (
-                <option value={user.name} key={user.id}>
+                <option value={JSON.stringify(user)} key={user.id}>
                   {user.name}
                 </option>
               );
