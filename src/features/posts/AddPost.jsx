@@ -1,7 +1,8 @@
+import { nanoid } from 'nanoid';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useAddNewPostMutation } from '../api/apiSlice';
 import { selectAllUsers } from '../users/usersSlice';
-import { addPost } from './postsSlice';
 
 export default function AddPost() {
   const [data, setData] = useState({
@@ -9,16 +10,17 @@ export default function AddPost() {
     content: '',
     user: null,
   });
-  const [addPostStatus, setAddPostStatus] = useState('idle');
-
-  const users = useSelector(selectAllUsers);
-
-  const dispatch = useDispatch();
   const { title, content, user } = data;
   const userData = JSON.parse(user);
+
+  const users = useSelector(selectAllUsers);
+  // const [addPostStatus, setAddPostStatus] = useState('idle');
+  // const dispatch = useDispatch();
+
+  const [addNewPost, { isLoading }] = useAddNewPostMutation();
+
   // const canSave = title && content && user;
-  const canSave =
-    [title, content, user].every(Boolean) && addPostStatus === 'idle';
+  const canSave = [title, content, user].every(Boolean) && !isLoading;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,13 +34,25 @@ export default function AddPost() {
     e.preventDefault();
     if (canSave) {
       try {
-        setAddPostStatus('loading');
-        await dispatch(addPost({ title, content, user: userData })).unwrap();
+        await addNewPost({
+          title,
+          content,
+          user: userData,
+          id: nanoid(),
+          date: new Date().toISOString(),
+          reactions: {
+            eyes: 0,
+            rocket: 0,
+            heart: 0,
+            hooray: 0,
+            thumbsUp: 0,
+            haha: 0,
+          },
+        }).unwrap();
         setData({ title: '', content: '', user: null });
       } catch (err) {
         console.error('Failed to add the post: ', err);
       } finally {
-        setAddPostStatus('idle');
         e.target.reset();
       }
     }

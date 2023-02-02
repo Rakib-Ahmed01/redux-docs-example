@@ -40,7 +40,7 @@ export default function UsersPage() {
       ) : (
         <p className="text-center">
           No post is added by{' '}
-          <span className="text-violet-500"> {user.name}</span>
+          <span className="text-violet-500"> {user?.name}</span>
         </p>
       )}
     </section>

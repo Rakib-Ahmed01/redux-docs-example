@@ -1,25 +1,26 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Spinner } from '../../components/Spinner';
+import { useGetPostsQuery } from '../api/apiSlice';
 import PostAuthor from './PostAuthor';
-import { fetchPosts, selectPostById, selectPostIds } from './postsSlice';
 import ReactionButtons from './ReactionButtons';
 import TimeAgo from './TimeAgo';
 
 export default function PostsList() {
   // const posts = useSelector(selectAllPosts);
-  const postIds = useSelector(selectPostIds);
-  const postsStatus = useSelector((state) => state.posts.status);
-  const error = useSelector((state) => state.posts.error);
+  // const postIds = useSelector(selectPostIds);
+  // const postsStatus = useSelector((state) => state.posts.status);
+  // const error = useSelector((state) => state.posts.error);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (postsStatus === 'idle') {
-      dispatch(fetchPosts());
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (postsStatus === 'idle') {
+  //     dispatch(fetchPosts());
+  //   }
+  // }, []);
+
+  const { data: posts = [], error, isLoading, isSuccess } = useGetPostsQuery();
 
   // const renderedPosts = posts
   //   .slice()
@@ -28,18 +29,22 @@ export default function PostsList() {
   //     return <Post key={post.id} post={post} />;
   //   });
 
-  const renderedPosts = postIds?.map((postId) => {
-    return <Post key={postId} postId={postId} />;
+  const sortedPosts = useMemo(() => {
+    return posts.slice().sort((a, b) => b.date.localeCompare(a.date));
+  }, [posts]);
+
+  const renderedPosts = sortedPosts.map((post) => {
+    return <Post key={post.id} post={post} />;
   });
 
   let content;
 
-  if (postsStatus === 'loading') {
+  if (isLoading) {
     content = <Spinner />;
-  } else if (postsStatus === 'succeeded') {
+  } else if (isSuccess) {
     content = renderedPosts;
-  } else if (postsStatus === 'failed') {
-    content = <div>{error}</div>;
+  } else if (error) {
+    content = <div>{error.toString()}</div>;
   }
 
   return (
@@ -50,8 +55,8 @@ export default function PostsList() {
   );
 }
 
-function Post({ postId }) {
-  const post = useSelector((state) => selectPostById(state, postId));
+function Post({ post }) {
+  // const post = useSelector((state) => selectPostById(state, postId));
   return (
     <article className="border rounded p-3 w-1/2 mx-auto my-4">
       <h3 className="text-xl font-semibold">{post?.title}</h3>

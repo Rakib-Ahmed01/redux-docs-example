@@ -1,12 +1,17 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { editPost, selectPostById } from './postsSlice';
+import { useEditPostMutation, useGetPostQuery } from '../api/apiSlice';
 
 export default function EditPost() {
   const { postId } = useParams();
   const navigate = useNavigate();
-  const post = useSelector((state) => selectPostById(state, postId));
+  // const post = useSelector((state) => selectPostById(state, postId));
+  const { data: post, isLoading } = useGetPostQuery(postId);
+  const [editPost] = useEditPostMutation();
+
+  if (isLoading) {
+    return <Spinner text="loading post..." />;
+  }
 
   if (!post) {
     return (
@@ -21,7 +26,7 @@ export default function EditPost() {
     content: post.content,
   });
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const { title, content } = data;
   const canSave = title && content;
 
@@ -33,9 +38,9 @@ export default function EditPost() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(editPost({ postId, title, content }));
+    await editPost({ id: postId, title, content });
     setData({ title: '', content: '' });
     e.target.reset();
     navigate(`/posts/${postId}`);

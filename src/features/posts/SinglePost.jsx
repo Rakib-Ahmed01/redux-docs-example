@@ -1,13 +1,18 @@
-import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import { Spinner } from '../../components/Spinner';
+import { useGetPostQuery } from '../api/apiSlice';
 import PostAuthor from './PostAuthor';
-import { selectPostById } from './postsSlice';
 import ReactionButtons from './ReactionButtons';
 import TimeAgo from './TimeAgo';
 
 export default function SinglePost() {
   const { postId } = useParams();
-  const post = useSelector((state) => selectPostById(state, postId));
+  // const post = useSelector((state) => selectPostById(state, postId));
+  const { data: post, isLoading } = useGetPostQuery(postId);
+
+  if (isLoading) {
+    return <Spinner text="loading post..." />;
+  }
 
   if (!post) {
     return (
