@@ -1,0 +1,151 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "First Post!",
+      "content": "Hello!",
+      "date": "2023-02-01T17:44:16.775Z",
+      "reactions": {
+        "eyes": 0,
+        "rocket": 0,
+        "heart": 0,
+        "hooray": 0,
+        "thumbsUp": 0,
+        "haha": 0
+      }
+    },
+    {
+      "id": "2",
+      "title": "Second Post",
+      "content": "More text",
+      "author": "Madison Price",
+      "date": "2023-02-01T17:39:16.775Z",
+      "reactions": {
+        "eyes": 0,
+        "rocket": 0,
+        "heart": 0,
+        "hooray": 0,
+        "thumbsUp": 0,
+        "haha": 0
+      }
+    },
+    {
+      "id": "3",
+      "title": "Third Post!",
+      "content": "Hello!!!",
+      "date": "2023-02-01T17:44:16.775Z",
+      "reactions": {
+        "eyes": 0,
+        "rocket": 0,
+        "heart": 0,
+        "hooray": 0,
+        "thumbsUp": 0,
+        "haha": 0
+      }
+    },
+    {
+      "title": "gfhfhgf",
+      "content": "fghfghfg",
+      "author": "Kevin Grant",
+      "id": "Pj_5Jhjl1w2mUzgDExRfg",
+      "date": "2023-02-01T19:37:44.839Z",
+      "reactions": {
+        "eyes": 0,
+        "rocket": 0,
+        "heart": 0,
+        "hooray": 0,
+        "thumbsUp": 0,
+        "haha": 0
+      }
+    },
+    {
+      "title": "fdgds",
+      "content": "dfsgdfgd",
+      "author": "Kevin Grant",
+      "id": "pooAdcPJVZjsH1arQvG-h",
+      "date": "2023-02-01T19:38:48.959Z",
+      "reactions": {
+        "eyes": 0,
+        "rocket": 0,
+        "heart": 0,
+        "hooray": 0,
+        "thumbsUp": 0,
+        "haha": 0
+      }
+    },
+    {
+      "title": "xvcxcvcvxc",
+      "content": "xcvdgdfgfd",
+      "author": "Kevin Grant",
+      "id": "7VvgIpU_2x4Tn6cZMvYPl",
+      "date": "2023-02-01T19:51:58.273Z",
+      "reactions": {
+        "eyes": 0,
+        "rocket": 0,
+        "heart": 0,
+        "hooray": 0,
+        "thumbsUp": 0,
+        "haha": 0
+      }
+    },
+    {
+      "title": "fdhgd",
+      "content": "hgdgfg",
+      "author": "Kevin Grant",
+      "id": "sgDXLsOs8dEkI_8fs6LeL",
+      "date": "2023-02-01T19:54:43.113Z",
+      "reactions": {
+        "eyes": 0,
+        "rocket": 0,
+        "heart": 0,
+        "hooray": 0,
+        "thumbsUp": 0,
+        "haha": 0
+      }
+    },
+    {
+      "title": "dsafxcxc",
+      "content": "xcxcxc",
+      "author": "Madison Price",
+      "id": "NHJWjAM-qw2a7VxErwdMY",
+      "date": "2023-02-01T19:55:39.241Z",
+      "reactions": {
+        "eyes": 0,
+        "rocket": 0,
+        "heart": 0,
+        "hooray": 0,
+        "thumbsUp": 0,
+        "haha": 0
+      }
+    },
+    {
+      "title": "ghtghgf",
+      "content": "fghfghfgh",
+      "author": "Kevin Grant",
+      "id": "cPCIhhwRx4-thvkXlGCZp",
+      "date": "2023-02-01T19:56:26.147Z",
+      "reactions": {
+        "eyes": 0,
+        "rocket": 0,
+        "heart": 0,
+        "hooray": 0,
+        "thumbsUp": 0,
+        "haha": 0
+      }
+    }
+  ],
+  "users": [
+    {
+      "id": "0",
+      "name": "Tianna Jenkins"
+    },
+    {
+      "id": "1",
+      "name": "Kevin Grant"
+    },
+    {
+      "id": "2",
+      "name": "Madison Price"
+    }
+  ]
+}

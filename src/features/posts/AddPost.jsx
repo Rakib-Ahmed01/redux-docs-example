@@ -9,12 +9,15 @@ export default function AddPost() {
     content: '',
     author: '',
   });
+  const [addPostStatus, setAddPostStatus] = useState('idle');
 
   const users = useSelector(selectAllUsers);
 
   const dispatch = useDispatch();
   const { title, content, author } = data;
-  const canSave = title && content && author;
+  // const canSave = title && content && author;
+  const canSave =
+    [title, content, author].every(Boolean) && addPostStatus === 'idle';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,11 +27,21 @@ export default function AddPost() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(addPost(title, content, author));
-    setData({ title: '', content: '', author: '' });
-    e.target.reset();
+    if (canSave) {
+      try {
+        setAddPostStatus('loading');
+        const x = await dispatch(addPost({ title, content, author })).unwrap();
+        console.log(x);
+        setData({ title: '', content: '', author: '' });
+      } catch (err) {
+        console.error('Failed to add the post: ', err);
+      } finally {
+        setAddPostStatus('idle');
+        e.target.reset();
+      }
+    }
   };
 
   return (

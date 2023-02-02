@@ -1,15 +1,22 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-const initialState = [
-  { id: '0', name: 'Tianna Jenkins' },
-  { id: '1', name: 'Kevin Grant' },
-  { id: '2', name: 'Madison Price' },
-];
+export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
+  const res = await axios('http://localhost:3500/users');
+  return res.data;
+});
+
+const initialState = [];
 
 const usersSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchUsers.fulfilled, (state, action) => {
+      state.push(...action.payload);
+    });
+  },
 });
 
 export const {} = usersSlice.actions;
