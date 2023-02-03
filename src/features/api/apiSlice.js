@@ -3,15 +3,17 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const apiSlice = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3500' }),
-  tagTypes: ['Post'],
+  tagTypes: ['Post', 'Users'],
   endpoints: (builder) => ({
     getPosts: builder.query({
       query: () => '/posts',
-      providesTags: ['Post'],
+      providesTags: (result = [], _error, _arg) => {
+        return ['Post', result.map(({ id }) => ({ type: 'Post', id: id }))];
+      },
     }),
     getPost: builder.query({
       query: (postId) => `/posts/${postId}`,
-      providesTags: ['Post'],
+      providesTags: (_result, _error, arg) => [{ type: 'Post', id: arg }],
     }),
     addNewPost: builder.mutation({
       query: (initialPost) => ({
@@ -27,7 +29,10 @@ export const apiSlice = createApi({
         method: 'PATCH',
         body: initialPost,
       }),
-      invalidatesTags: ['Post'],
+      invalidatesTags: (_result, _error, arg) => [
+        'Post',
+        { type: 'Post', id: arg.id },
+      ],
     }),
   }),
 });

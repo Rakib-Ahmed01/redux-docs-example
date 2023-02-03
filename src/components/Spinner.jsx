@@ -1,9 +1,11 @@
-export const Spinner = ({ text = '', size = '5em' }) => {
-  const header = text ? <h4>{text}</h4> : null;
+export const Spinner = ({ text }) => {
+  const header = text ? (
+    <h4 className="text-xl font-semibold capitalize">{text}</h4>
+  ) : null;
   return (
-    <div className="spinner">
+    <div className="flex flex-col gap-2 justify-center items-center mt-5">
       {header}
-      <div className="loader" style={{ height: size, width: size }} />
+      <div className="w-12 h-12 border-4 border-dotted border-violet-500 rounded-full animate-spin" />
     </div>
   );
 };

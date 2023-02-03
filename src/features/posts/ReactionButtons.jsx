@@ -23,7 +23,7 @@ export default function ReactionButtons({ reactions, postId }) {
         return (
           <div
             key={name}
-            className="border w-14 py-1 rounded flex gap-1 cursor-pointer hover:border-gray-500 justify-center"
+            className="border w-14 py-1 rounded flex gap-1 cursor-pointer hover:border-gray-500 justify-center hover:animate-pulse"
             onClick={() => onReactionButtonClicked(name)}
           >
             {emoji}

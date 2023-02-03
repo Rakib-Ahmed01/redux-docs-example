@@ -4,6 +4,13 @@ import { selectAllUsers } from './usersSlice';
 
 export default function UsersList() {
   const users = useSelector(selectAllUsers);
+  // const { data: users, isLoading } = useGetUsersQuery();
+
+  console.log(users);
+
+  // if (isLoading) {
+  //   return <Spinner text="Loading Users..." />;
+  // }
   return (
     <section className="w-1/2 mx-auto">
       <h2 className="text-3xl text-center font-bold my-2">Users</h2>

@@ -6,6 +6,7 @@ import {
 } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { nanoid } from 'nanoid';
+import { apiSlice } from '../api/apiSlice';
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
   const res = await axios('http://localhost:3500/posts');
@@ -126,19 +127,33 @@ const postsSlice = createSlice({
 // export const selectPostById = (state, postId) =>
 //   state.posts.posts.find((post) => post.id === postId);
 
-export const {
-  selectAll: selectAllPosts,
-  selectIds: selectPostIds,
-  selectById: selectPostById,
-  selectEntities: selectPostEntities,
-  selectTotal: selectPostTotal,
-} = postsAdapter.getSelectors((state) => state.posts);
+// export const {
+//   selectAll: selectAllPosts,
+//   selectIds: selectPostIds,
+//   selectById: selectPostById,
+//   selectEntities: selectPostEntities,
+//   selectTotal: selectPostTotal,
+// } = postsAdapter.getSelectors((state) => state.posts);
+
+// export const selectPostsByUser = createSelector(
+//   [selectAllPosts, (_state, userId) => userId],
+//   (allPosts, userId) => allPosts.filter((post) => post.user.id === userId)
+// );
+
+export const { editPost, addReaction } = postsSlice.actions;
+
+export default postsSlice.reducer;
+
+export const selectPostsResult = apiSlice.endpoints.getPosts.select();
+
+const emptyPosts = [];
+
+export const selectAllPosts = createSelector(
+  [selectPostsResult],
+  (postsResult) => postsResult?.data ?? emptyPosts
+);
 
 export const selectPostsByUser = createSelector(
   [selectAllPosts, (_state, userId) => userId],
   (allPosts, userId) => allPosts.filter((post) => post.user.id === userId)
 );
-
-export const { editPost, addReaction } = postsSlice.actions;
-
-export default postsSlice.reducer;

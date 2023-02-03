@@ -1,8 +1,7 @@
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useAddNewPostMutation } from '../api/apiSlice';
-import { selectAllUsers } from '../users/usersSlice';
+import { useGetUsersQuery } from '../users/usersSlice';
 
 export default function AddPost() {
   const [data, setData] = useState({
@@ -13,7 +12,9 @@ export default function AddPost() {
   const { title, content, user } = data;
   const userData = JSON.parse(user);
 
-  const users = useSelector(selectAllUsers);
+  // const users = useSelector(selectAllUsers);
+  const { data: users } = useGetUsersQuery();
+
   // const [addPostStatus, setAddPostStatus] = useState('idle');
   // const dispatch = useDispatch();
 
@@ -89,7 +90,7 @@ export default function AddPost() {
             onChange={handleChange}
           >
             <option value="">Select Author</option>
-            {users.map((user) => {
+            {users?.map((user) => {
               return (
                 <option value={JSON.stringify(user)} key={user.id}>
                   {user.name}
